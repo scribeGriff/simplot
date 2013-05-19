@@ -1,0 +1,29 @@
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+#container {
+  width: 100%;
+  position: relative;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  overflow:hidden;
+}
+#simPlotGraph {
+  display: none;
+  width: 700px;
+  margin: 0 auto;
+}
+#simPlotQuad {
+  width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.simPlot {
+  margin: 30px;
+  float: left;
+}
