@@ -42,7 +42,7 @@ void main() {
   // Add scatter plot to the allPlots array.
   allPlots.add(myScatter);
 
-  //Plot #2: Plotting sample data with a line graph of uneven lengths.
+  //Plot #2: Plotting sample data with a line graph.
 
   var resistance = [77.98, 104.23, 107.9, 74.61, 73.54, 91.63, 100.54, 85.19,
                     81.46, 87.64, 69.26, 90.86, 100.15, 95.24, 72.26, 74.86,

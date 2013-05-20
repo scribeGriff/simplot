@@ -11,12 +11,12 @@ part of simplot;
  * to the size of the first ydata supplied in units from 1 to ydata.length.
  *
  * Current styles supported:
- * *data (default)
- * *points
+ * *data
  * *curve
  * *curvepts (curve with points)
  * *line
- * *linepts (line with points)
+ * *linepts (defaults)
+ * *points
  *
  * Variable r is the range which specifies how many subplots (1 - 4).
  * Variable i is the index of the subplot (1 - 4).
@@ -94,8 +94,8 @@ Plot2D plot(List y1, {
     int linewidth: 2,
     int range: 1,
     int index: 1,
-    bool large: true,
     String container: '#simPlotQuad'}) {
+  final bool large = true;
   final int _gphSize = 600;
   final int _border = 80;
   final int _pwidth = _gphSize;
