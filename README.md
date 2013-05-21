@@ -122,6 +122,8 @@ Referring to the graph image above, let's look at the code to create each of the
 
 ### Plot 1: Scatter (XY)
 
+Let's assume we have some data that is grouped as pairs of x and y values.  We can map each set of values to its own list and then create a plot instance using a point style.  We can then calculate the best fit and plot it using the line style.
+
     var allPlots = new List();
 
     // Plot #1: Scatter plot example.
@@ -156,6 +158,8 @@ Referring to the graph image above, let's look at the code to create each of the
 
 ### Plot 2: Line with Points
 
+The next example plots multiple sets of data in the linepts style.  Note that the x axis, if not specified explicitly, is defined according to the first parameter passed to the plot() function, in this case, the `List resistance`.  The data lists are not required to be the same length, although subsequent sets of data may be truncated if they are longer than the first set.  In this example, we use two `xmarker()`s with annotation enabled.
+
     //Plot #2: Plotting sample data with a line graph.
     var resistance = [77.98, 104.23, 107.9, 74.61, 73.54, 91.63, 100.54, 85.19,
                       81.46, 87.64, 69.26, 90.86, 100.15, 95.24, 72.26, 74.86,
@@ -185,6 +189,8 @@ Referring to the graph image above, let's look at the code to create each of the
     allPlots.add(myLines); 
 
 ### Plot 3: Curve
+
+Our third example shows the use of the curve style to plot data of a continuous time signal.  Here we are using the `xmarker()` and `ymarker()` with annotations disabled to act as axes through the origin. 
 
     // Plot #3: Sinc Function
     var x = new List.generate(501, (var index) => (index - 250) / 10, growable:false);
@@ -216,6 +222,8 @@ Referring to the graph image above, let's look at the code to create each of the
     allPlots.add(myCurve);
 
 ### Plot 4: Curve
+
+For the final plot, we add a date stamp with `date()` and then call the library's top level function `saveAll(allPlots)` to send the final result to a browser window as a PNG image.
 
     // Plot #4: Partial sums of Fourier series.
     List waveform = square(2);
