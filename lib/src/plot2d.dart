@@ -95,6 +95,9 @@ Plot2D plot(List y1, {
     int range: 1,
     int index: 1,
     String container: '#simPlotQuad'}) {
+
+  if (y1 == null || y1.isEmpty) throw new ArgumentError("No data to be plotted.");
+
   final bool large = true;
   final int _gphSize = 600;
   final int _border = 80;

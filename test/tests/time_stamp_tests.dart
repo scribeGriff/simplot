@@ -9,5 +9,6 @@ part of simplottests;
  */
 
 void timeStampTests() {
-//placeholder
+  //placeholder
+  logMessage('Performing time stamp tests.');
 }

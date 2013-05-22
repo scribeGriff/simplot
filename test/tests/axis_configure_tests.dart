@@ -9,5 +9,6 @@ part of simplottests;
  */
 
 void axisConfigTests() {
-//placeholder
+  //placeholder
+  logMessage('Performing axis config tests.');
 }

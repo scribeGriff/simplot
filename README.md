@@ -244,3 +244,57 @@ For the final plot, we add a date stamp with `date()` and then call the library'
     allPlots.add(my2ndCurve);
     // Print all plots.
     WindowBase myPlotWindow = saveAll(allPlots);
+
+## HTML and CSS ##
+
+Displaying the plots in a web browser is left largely up to the user.  All that is needed at a minimum is a div with either an ID of **#simPlotQuad** (the default value of the optional `container` parameter), or an ID of the user's choosing that is passed as the `container` parameter to `plot()` and a class called **.simPlot**.  A simple example might look like the following:
+
+### HTML:
+
+    <!DOCTYPE html>
+    
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>A Simple Plot Example</title>
+        <link rel="stylesheet" href="simple_plot.css">
+      </head>
+      <body>
+        <h1>SimPlot</h1>
+        <p>A 2D canvas plotting tool in Dart.</p>
+        <div id="container">
+          <div id="simPlotQuad"></div>
+        </div>
+        <script type="application/dart" src="simple_plot.dart"></script>
+        <script src="packages/browser/dart.js"></script>
+      </body>
+    </html>
+
+### CSS:
+
+    body {
+      background-color: #F8F8F8;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 1.2em;
+      margin: 15px;
+    }
+    #container {
+      width: 100%;
+      position: relative;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      overflow:hidden;
+    }
+    #simPlotQuad {
+      width: 1400px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .simPlot {
+      margin: 30px;
+      float: left;
+    }
+
+This example will place multiple plots in a quad arrangement as in the example image above.
