@@ -120,4 +120,3 @@ void main() {
   allPlots.add(my2ndCurve);
   WindowBase myPlotWindow = saveAll(allPlots);
 }
-
