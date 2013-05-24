@@ -543,7 +543,7 @@ class Plot2D {
       ..fillStyle = color
       ..textAlign = 'center'
       ..font = font
-      ..fillText(title, ((_pwidth  + (2 * _borderL) - _border)/ 2), _borderT / 2);
+      ..fillText(title, ((_pwidth  + (2 * _borderL) - _border) / 2), _borderT / 2);
   }
 
   /**

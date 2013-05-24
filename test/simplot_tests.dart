@@ -23,7 +23,7 @@ import 'dart:html';
 part 'tests/logarithmic_tests.dart';
 part 'tests/time_stamp_tests.dart';
 part 'tests/axis_configure_tests.dart';
-part 'tests/canvas_create_tests.dart';
+part 'tests/create_single_plot.dart';
 
 void main() {
   print('Running unit tests for simplot library.');
