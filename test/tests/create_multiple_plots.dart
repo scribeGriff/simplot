@@ -75,7 +75,7 @@ void createMultiplePlots() {
       var ids = graph.children.map((child) => child.id).toList();
       expect(ids, equals(expected));
     });
-    test('Calling plot() with a simple list: Check for proper class', () {
+    test('Calling plot() 4 times with a simple list: Check for proper class', () {
       logMessage('Now checking for simPlot class.');
       plot(simpleList, range:4, index:1);
       plot(simpleList, range:4, index:2);
@@ -83,15 +83,21 @@ void createMultiplePlots() {
       plot(simpleList, range:4, index:4);
       expect(graph.children.every((child) => child.classes.contains("simPlot")), equals(true));
     });
-    test('Calling plot() with a simple list: Check for proper width', () {
+    test('Calling plot() 4 times with a simple list: Check for proper width', () {
       logMessage('Now checking for plot width.');
-      plot(simpleList);
-      expect(graph.children[0].width, equals(600));
+      plot(simpleList, range:4, index:1);
+      plot(simpleList, range:4, index:2);
+      plot(simpleList, range:4, index:3);
+      plot(simpleList, range:4, index:4);
+      expect(graph.children.every((child) => child.width == 600), equals(true));
     });
-    test('Calling plot() with a simple list: Check for proper height', () {
+    test('Calling plot() 4 times with a simple list: Check for proper height', () {
       logMessage('Now checking for plot height.');
-      plot(simpleList);
-      expect(graph.children[0].height, equals(600));
+      plot(simpleList, range:4, index:1);
+      plot(simpleList, range:4, index:2);
+      plot(simpleList, range:4, index:3);
+      plot(simpleList, range:4, index:4);
+      expect(graph.children.every((child) => child.height == 450), equals(true));
     });
     // Not sure if this is the proper way to do this, but want to test that
     // the public methods execute without error.  Does this do that?
