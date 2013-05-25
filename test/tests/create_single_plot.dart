@@ -5,13 +5,13 @@
 part of simplottests;
 
 /**
- * Unit testing of creating a canvas plotting element with the simplot library.
+ * Testing the creation of a single canvas plotting element.
  */
 
-void canvasCreateTests() {
-  logMessage('Performing plotting to canvas tests.');
+void createSinglePlot() {
+  logMessage('Creating a single plot to canvas.');
 
-  group('Testing the plot() function:', () {
+  group('Creating a single plot:', () {
     DivElement container, graph;
     var simpleList = [6, 12, 14, 3.4, 62, 47, 19, 0.3, -14, 0];
 
@@ -109,9 +109,37 @@ void canvasCreateTests() {
       logMessage('Now adding a title with required String label.');
       expect(() => plot(simpleList).title(''), isNot(throwsNoSuchMethodError));
     });
-    test('Calling plot() with a simple list: Add a date()', () {
-      logMessage('Now adding a date stamp.');
+    test('Calling plot() with a simple list: Add a date(), long form', () {
+      logMessage('Now adding a date stamp, long form.');
       expect(() => plot(simpleList).date(), isNot(throwsNoSuchMethodError));
+    });
+    test('Calling plot() with a simple list: Add a date(), short form', () {
+      logMessage('Now adding a date stamp, short form.');
+      expect(() => plot(simpleList).date(true), isNot(throwsNoSuchMethodError));
+    });
+    test('Calling plot() with a simple list: Add a legend() with no arguments', () {
+      logMessage('Now adding a legend, no arguments.');
+      expect(() => plot(simpleList).legend(), isNot(throwsNoSuchMethodError));
+    });
+    test('Calling plot() with a simple list: Add a legend() with optional arguments', () {
+      logMessage('Now adding a legend with optional arguments.');
+      expect(() => plot(simpleList).legend(l1:'', l2:'', l3:'', l4:''), isNot(throwsNoSuchMethodError));
+    });
+    test('Calling plot() with a simple list: Add an xmarker() missing argument', () {
+      logMessage('Now adding an xmarker missing arguments.');
+      expect(() => plot(simpleList).xmarker(), throwsNoSuchMethodError);
+    });
+    test('Calling plot() with a simple list: Add an xmarker() with required num value', () {
+      logMessage('Now adding an xmarker with num value.');
+      expect(() => plot(simpleList).xmarker(simpleList.length / 2), isNot(throwsNoSuchMethodError));
+    });
+    test('Calling plot() with a simple list: Add an ymarker() missing argument', () {
+      logMessage('Now adding an ymarker missing arguments.');
+      expect(() => plot(simpleList).ymarker(), throwsNoSuchMethodError);
+    });
+    test('Calling plot() with a simple list: Add an ymarker() with required num value', () {
+      logMessage('Now adding an xmarker with num value.');
+      expect(() => plot(simpleList).ymarker(60), isNot(throwsNoSuchMethodError));
     });
   });
 }

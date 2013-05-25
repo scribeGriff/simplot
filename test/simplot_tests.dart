@@ -24,6 +24,7 @@ part 'tests/logarithmic_tests.dart';
 part 'tests/time_stamp_tests.dart';
 part 'tests/axis_configure_tests.dart';
 part 'tests/create_single_plot.dart';
+part 'tests/create_multiple_plots.dart';
 
 void main() {
   print('Running unit tests for simplot library.');
@@ -32,6 +33,7 @@ void main() {
     test('test of logarithmic functions', () => logarithmicTests());
     test('test of time stamp', () => timeStampTests());
     test('test of axis configuration', () => axisConfigTests());
-    test('test of creating a canvas', () => canvasCreateTests());
+    test('test of creating a single plot', () => createSinglePlot());
+    test('test of creating multiple plots', () => createMultiplePlots());
   });
 }
