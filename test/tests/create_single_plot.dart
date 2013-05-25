@@ -141,5 +141,21 @@ void createSinglePlot() {
       logMessage('Now adding an xmarker with num value.');
       expect(() => plot(simpleList).ymarker(60), isNot(throwsNoSuchMethodError));
     });
+    test('Calling plot() with a simple list: Add an empty list for y2', () {
+      logMessage('Now adding an empty list for y2. Expect argument error.');
+      expect(() => plot(simpleList, y2:[]), throwsArgumentError);
+    });
+    test('Calling plot() with a simple list: Add an empty list for y3', () {
+      logMessage('Now adding an empty list for y3. Expect argument error.');
+      expect(() => plot(simpleList, y3:[]), throwsArgumentError);
+    });
+    test('Calling plot() with a simple list: Add an empty list for y3', () {
+      logMessage('Now adding an empty list for y3. Expect argument error.');
+      expect(() => plot(simpleList, y4:[]), throwsArgumentError);
+    });
+    test('Calling plot() with a simple list: Add a simple list for y2', () {
+      logMessage('Now adding a simple list for y2. Expect no error.');
+      expect(() => plot(simpleList, y2:simpleList), isNot(throwsNoSuchMethodError));
+    });
   });
 }

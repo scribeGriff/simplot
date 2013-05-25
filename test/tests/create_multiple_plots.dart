@@ -99,19 +99,5 @@ void createMultiplePlots() {
       plot(simpleList, range:4, index:4);
       expect(graph.children.every((child) => child.height == 450), equals(true));
     });
-    // Not sure if this is the proper way to do this, but want to test that
-    // the public methods execute without error.  Does this do that?
-    test('Calling plot() with a simple list: Add a grid()', () {
-      logMessage('Now adding a grid.');
-      expect(() => plot(simpleList).grid(), isNot(throwsNoSuchMethodError));
-    });
-    test('Calling plot() with a simple list: Add an xlabel() missing arguments', () {
-      logMessage('Now adding a label to the x axis missing arguments.');
-      expect(() => plot(simpleList).xlabel(), throwsNoSuchMethodError);
-    });
-    test('Calling plot() with a simple list: Add an xlabel() with required String label', () {
-      logMessage('Now adding a label to the x axis with required String label.');
-      expect(() => plot(simpleList).xlabel(''), isNot(throwsNoSuchMethodError));
-    });
   });
 }
