@@ -98,7 +98,6 @@ void main() {
    *  with annotations disabled to act as axes through the origin.
    */
   var x = new List.generate(501, (var index) => (index - 250) / 10, growable:false);
-  //var sincx = x.map((x) => sin(x) / x);
   var sincx = new List(x.length);
   var sincpix = new List(x.length);
   var cosx = new List(x.length);
