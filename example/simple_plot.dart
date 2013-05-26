@@ -12,7 +12,15 @@ import 'dart:math';
 void main() {
   var allPlots = new List();
 
-  // Plot #1: Scatter plot example.
+  /**
+   *  Example Plot #1: Scatter plot example.
+   *
+   *  Let's assume we have some data that is grouped as pairs of x and y values.
+   *  We can map each set of values to its own list and then create a plot
+   *  instance using a point style. We can then calculate the best fit and plot
+   *  it using the line style.
+   */
+
   var fat_calories = [[9, 260],
                       [13, 320],
                       [21, 420],
@@ -42,7 +50,17 @@ void main() {
   // Add scatter plot to the allPlots array.
   allPlots.add(myScatter);
 
-  //Plot #2: Plotting sample data with a line graph.
+  /**
+   * Example Plot #2: Plotting sample data with a line graph.
+   *
+   * The next example plots multiple sets of data in the linepts style. Note
+   * that the x axis, if not specified explicitly, is defined according to the
+   * first parameter passed to the plot() function, in this case, the List
+   * resistance. The data lists are not required to be the same length,
+   * although subsequent sets of data may be truncated if they are longer than
+   * the first set. In this example, we use two xmarker()s with annotation
+   * enabled.
+   */
 
   var resistance = [77.98, 104.23, 107.9, 74.61, 73.54, 91.63, 100.54, 85.19,
                     81.46, 87.64, 69.26, 90.86, 100.15, 95.24, 72.26, 74.86,
@@ -69,9 +87,16 @@ void main() {
     ..legend(l1:'R (mOhms)', l2:'L (10^-2 nH)', l3: 'C (10^-3 pF)')
     ..xmarker(2, annotate:true)
     ..xmarker(20, annotate:true);
+  // Add myLines plot to allPlots array.
   allPlots.add(myLines);
 
-  // Plot #3: Sinc Function
+  /**
+   *  Example Plot #3: Sinc Function.
+   *
+   *  Our third example shows the use of the curve style to plot data of a
+   *  continuous time signal. Here we are using the xmarker() and ymarker()
+   *  with annotations disabled to act as axes through the origin.
+   */
   var x = new List.generate(501, (var index) => (index - 250) / 10, growable:false);
   //var sincx = x.map((x) => sin(x) / x);
   var sincx = new List(x.length);
@@ -98,9 +123,16 @@ void main() {
     ..ymarker(0)
     ..legend(l1:'cos(x)', l2:'sinc(pi*x)', l3:'sinc(x)')
     ..title('Sinc Function (normalized and unnormalized)', color:'MidnightBlue');
+  // Add myCurve plot to allPlots array.
   allPlots.add(myCurve);
 
-  // Plot #4: Partial sums of Fourier series.
+  /**
+   * Example Plot #4: Partial sums of Fourier series.
+   *
+   * For the final plot, we add a date stamp with date() and then call the
+   * library's top level function saveAll(allPlots) to send the final result
+   * to a browser window as a PNG image.
+   */
   List waveform = square(2);
   List kvals = [2, 8, 32];
   var fourier = fsps(waveform, kvals);
@@ -117,6 +149,8 @@ void main() {
     ..xlabel('samples(n)')
     ..ylabel('signal amplitude')
     ..date();
+  // Add my2ndCurve plot to allPlots array.
   allPlots.add(my2ndCurve);
+  // Save all plots to a browser window as PNG image.
   WindowBase myPlotWindow = saveAll(allPlots);
 }

@@ -9,6 +9,14 @@ part of simplottests;
  */
 
 void timeStampTests() {
-  //placeholder
   logMessage('Performing time stamp tests.');
+
+  group('Test time stamp String:', () {
+    test('Create new time stamp in long form, expect it ends with current year', () {
+      expect(new TimeStamp().stamp(), endsWith(new DateTime.now().year.toString()));
+    });
+    test('Create new time stamp in short form, expect it ends with current year', () {
+      expect(new TimeStamp().stamp(true), endsWith(new DateTime.now().year.toString()));
+    });
+  });
 }
