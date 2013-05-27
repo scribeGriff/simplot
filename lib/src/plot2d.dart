@@ -5,59 +5,60 @@
 part of simplot;
 
 /**
- * A small 2D plotting class for graphing data to an HTML canvas.
  *
- * If xdata not specified, a vector is generated equivalent
- * to the size of the first ydata supplied in units from 1 to ydata.length.
+ * Returns an instance of the Plot2D class for graphing data to an HTML canvas.
+ *
+ * Only one parameter is required - a List representing the data to be plotted.
+ * If x axis information is not specified, a vector is generated equivalent to
+ * the size of the first ydata supplied in units from 1 to ydata.length.
  *
  * Current styles supported:
- * *data
- * *curve
- * *curvepts (curve with points)
- * *line
- * *linepts (defaults)
- * *points
+ *
+ * * data
+ * * curve
+ * * curvepts (curve with points)
+ * * line
+ * * linepts (default)
+ * * points
+ *
  *
  * Variable r is the range which specifies how many subplots (1 - 4).
  * Variable i is the index of the subplot (1 - 4).
  * Both variables default to 1 for a single plot.
  *
  * Supported methods are:
- *     grid(),
- *     xlabel(String xlabelName, [String labelColor]),
- *     ylabel(String ylabelName, [String labelColor]),
- *     title(String title, [String titleColor]),
- *     date([bool short])
+ *     grid()
+ *     xlabel()
+ *     ylabel()
+ *     title()
+ *     date()
  *     legend()
- *     xmarker(num xval, [bool annotate])
- *     ymarker(num yval)
+ *     xmarker()
+ *     ymarker()
  *     save()
  *
  * There is also a top level function, saveAll(), for saving a group of subplots.
  *
- * Top level function plot() returns an instance of the Plot2D class.
- *
- * Only one parameter is required - a List representing the data to be plotted.
- *
  * Provides a number of named optional parameters:
- * *xdata: by default, the x axis is simply defined as the number of data
- *  points in y1, but the axis data points can be specified by providing a
- *  List for xdata.  All plots are plotted against this single x axis.
- * *y2 - y4: List representing additional data to be plotted on same axes.
- * *style: The default style is data, which plots the data as points with
- *  a line to the x axis.  Supported optional styles include points, curve,
- *  curvepts, line, linepts.
- * *color1 - color4: Sets the color for each set of data.
- * *range: The number of subplots.  Default is 1.
- * *index: Which subplot is currently being drawn.
- * *large: Default is true, but by setting this boolean value to false, will
- *  shrink the drawn size.
- * *container: The id of the container for the plots.  Default is #simPlotQuad.
+ *
+ * * xdata: by default, the x axis is simply defined as the number of data
+ *   points in y1, but the axis data points can be specified by providing a
+ *   List for xdata.  All plots are plotted against this single x axis.
+ * * y2 - y4: List representing additional data to be plotted on same axes.
+ * * style: The default style is data, which plots the data as points with
+ *   a line to the x axis.  Supported optional styles include points, curve,
+ *   curvepts, line, linepts.
+ * * color1 - color4: Sets the color for each set of data.
+ * * range: The number of subplots.  Default is 1.
+ * * index: Which subplot is currently being drawn.
+ * * large: Default is true, but by setting this boolean value to false, will
+ *   shrink the drawn size.
+ * * container: The id of the container for the plots.  Default is #simPlotQuad.
  *
  * All plots are assigned a unique id of simPlot$index (ie, #simPlot1) and a
  * common class of simPlot (ie, .simPlot).
  *
- * Usage (given up to four Lists of type num - ie, myData1, myData2):
+ * Usage (given up to four Lists of type num - ie, myData1, myData2,...):
  *
  *     import 'package:simplot/simplot.dart';
  *
@@ -156,6 +157,10 @@ Plot2D plot(List y1, {
 
 /**
  * Configures the axes and draws the data to the canvas.
+ *
+ * It is not recommended to instantiate this class directly, but rather through
+ * the top level function plot().
+ *
  */
 class Plot2D {
   _AxisConfigResults _yAxisCfg;
@@ -550,8 +555,9 @@ class Plot2D {
    * Adds a date stamp to the current plot.
    *
    * The date stamp can be in either a "short" form or a "long" (default) form.
-   * *long: 9:56pm Tue 16-Oct-2012
-   * *short: 9:56pm 10/16/2012
+   *
+   * * long: 9:56pm Tue 16-Oct-2012
+   * * short: 9:56pm 10/16/2012
    *
    * Usage:
    *     var myPlot = plot(data);
@@ -725,9 +731,10 @@ class Plot2D {
  * Draws all plots to a new canvas and opens a new window to allow for saving.
  *
  * Accepts 3 parameters, two of which are optional named parameters:
- * *List plots: A list of the plots that are to be printed.
- * *num scale (optional): Scales size of each canvas to be plotted (default = 1).
- * *bool quad: Determines arrangement of multiplot canvases. If quad is true
+ *
+ * * List plots: A list of the plots that are to be printed.
+ * * num scale (optional): Scales size of each canvas to be plotted (default = 1).
+ * * bool quad: Determines arrangement of multiplot canvases. If quad is true
  *   (default), plots are arranged in a 2 x n/2 matrix.  Otherwise, they are
  *   arranged vertically in a a 1 x n matrix.
  *

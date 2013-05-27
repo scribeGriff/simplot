@@ -196,7 +196,6 @@ Our third example shows the use of the curve style to plot data of a continuous 
 
     // Plot #3: Sinc Function
     var x = new List.generate(501, (var index) => (index - 250) / 10, growable:false);
-    //var sincx = x.map((x) => sin(x) / x);
     var sincx = new List(x.length);
     var sincpix = new List(x.length);
     var cosx = new List(x.length);

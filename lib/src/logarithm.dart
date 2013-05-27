@@ -5,15 +5,24 @@
 part of simplot;
 
 /**
- * Top level functions to implement some basic logarithms.
+ * Top level functions to implement some basic logarithms for plot range
+ * calculations.
  *
- * The log(x) function in dart:math returns the natural logarithm of x.
+ * The log(x) function in dart:math returns the natural logarithm of x:
  *
- * *log based 2 of x = natural log of x / natural log of 2
- * *log based 10 of x = natural log of x / natural log of 10
+ * * log based 2 of x = natural log of x / natural log of 2
+ *
  */
 
-// log base 2 of x.
 num log2(num x) => log(x) / log(2);
-// log base 10 of x.
+
+/**
+ * Top level functions to implement some basic logarithms for plot range
+ * calculations.
+ *
+ * The log(x) function in dart:math returns the natural logarithm of x:
+ *
+ * * log based 10 of x = natural log of x / natural log of 10
+ *
+ */
 num log10(num x) => log(x) / log(10);
