@@ -2,7 +2,7 @@
 // https://github.com/scribeGriff/simplot
 // All rights reserved.  Please see the LICENSE.md file.
 
-part of simplottests;
+part of simplot;
 
 /**
  * Testing the creation of multiple canvas plotting elements.

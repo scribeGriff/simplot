@@ -2,7 +2,7 @@
 // https://github.com/scribeGriff/simplot
 // All rights reserved.  Please see the LICENSE.md file.
 
-part of simplottests;
+part of simplot;
 
 /**
  * Unit testing of logarithmic log2(x) and log10(x) functions.

@@ -2,7 +2,7 @@
 // https://github.com/scribeGriff/simplot
 // All rights reserved.  Please see the LICENSE.md file.
 
-part of simplottests;
+part of simplot;
 
 /**
  * Unit testing of time stamp for simplot library.
@@ -12,7 +12,7 @@ void timeStampTests() {
   logMessage('Performing time stamp tests.');
 
   group('Test time stamp String:', () {
-    // Possibly just replace most of these with a single, thorough RegEx?
+    // Need to consider replacing most of these with a couple of better RegExs.
     test('Create new time stamp in long form, expect it ends with current year', () {
       expect(new TimeStamp().stamp(), endsWith(new DateTime.now().year.toString()));
     });

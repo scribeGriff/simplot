@@ -20,6 +20,10 @@ The simplot library supports a variety of plot styles, including:
 
 - **API:** [scribeGriff.github.io/docs/simplot](http://scribeGriff.github.io/docs/simplot "Simplot API documentation")
   
+### Limitations ###
+
+Currently, the library does not handle numbers with a large number of significant digits very well.  If you are working with data with more than about four significant digits, it is recommended that you scale the data before plotting.
+
 ### Library Usage ##
 
 Add the following to your pubspec.yaml:

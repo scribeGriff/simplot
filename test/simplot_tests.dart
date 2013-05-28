@@ -2,7 +2,7 @@
 // https://github.com/scribeGriff/simplot
 // All rights reserved.  Please see the LICENSE.md file.
 
-library simplottests;
+library simplot;
 
 /**
  * Unit testing for simplot library.
@@ -19,12 +19,14 @@ import 'package:simplot/simplot.dart';
 import 'package:unittest/unittest.dart';
 import 'package:unittest/html_enhanced_config.dart';
 import 'dart:html';
+import 'dart:math';
 
 part 'tests/logarithmic_tests.dart';
 part 'tests/time_stamp_tests.dart';
 part 'tests/axis_configure_tests.dart';
 part 'tests/create_single_plot.dart';
 part 'tests/create_multiple_plots.dart';
+part '../lib/src/axis_config.dart';
 
 void main() {
   print('Running unit tests for simplot library.');
