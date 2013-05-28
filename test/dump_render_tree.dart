@@ -12,5 +12,7 @@ library dumprendertree;
 import 'dart:io';
 
 void main() {
-  Process.run('DumpRenderTree', ['simplot_tests.html']);
+  Process.run('DumpRenderTree', ['simplot_tests.html']).then((results) {
+    print(results.stdout);
+  });
 }

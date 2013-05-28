@@ -6,7 +6,8 @@
 
 [![Build Status](https://drone.io/github.com/scribeGriff/simplot/status.png)](https://drone.io/github.com/scribeGriff/simplot/latest)
 
-Supports a variety of plot styles, including:
+## Overview ##
+The simplot library supports a variety of plot styles, including:
 
 - data
 - points (scatter)
@@ -15,8 +16,11 @@ Supports a variety of plot styles, including:
 - curve
 - curve with points 
 
+### Documentation ###
+
+- **API:** [scribeGriff.github.io/docs/simplot](http://scribeGriff.github.io/docs/simplot "Simplot API documentation")
   
-## Library Usage ##
+### Library Usage ##
 
 Add the following to your pubspec.yaml:
 
