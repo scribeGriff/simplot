@@ -41,10 +41,6 @@ void createMultiplePlots() {
       container.remove();
     });
 
-    test('Calling plot() with no arguments throws NoSuchMethodError()', () {
-      logMessage('Expect New NoSuchMethodError() thrown.');
-      expect(() => plot(), throwsNoSuchMethodError);
-    });
     test('Calling plot() with an empty array throws ArgumentError()', () {
       logMessage('Expect New Argument Error() thrown.');
       expect(() => plot([]), throwsArgumentError);

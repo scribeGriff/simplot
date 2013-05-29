@@ -41,10 +41,6 @@ void createSinglePlot() {
       container.remove();
     });
 
-    test('Calling plot() with no arguments throws NoSuchMethodError()', () {
-      logMessage('Expect New NoSuchMethodError() thrown.');
-      expect(() => plot(), throwsNoSuchMethodError);
-    });
     test('Calling plot() with an empty array throws ArgumentError()', () {
       logMessage('Expect New Argument Error() thrown.');
       expect(() => plot([]), throwsArgumentError);
@@ -72,12 +68,12 @@ void createSinglePlot() {
     test('Calling plot() with a simple list: Check for proper width', () {
       logMessage('Now checking for plot width.');
       plot(simpleList);
-      expect(graph.children[0].width, equals(600));
+      expect(graph.children[0].clientWidth, equals(600));
     });
     test('Calling plot() with a simple list: Check for proper height', () {
       logMessage('Now checking for plot height.');
       plot(simpleList);
-      expect(graph.children[0].height, equals(600));
+      expect(graph.children[0].clientHeight, equals(600));
     });
     // Not sure if this is the proper way to do this, but want to test that
     // the public methods execute without error.  Does this do that?
@@ -85,25 +81,13 @@ void createSinglePlot() {
       logMessage('Now adding a grid.');
       expect(() => plot(simpleList).grid(), isNot(throwsNoSuchMethodError));
     });
-    test('Calling plot() with a simple list: Add an xlabel() missing arguments', () {
-      logMessage('Now adding a label to the x axis missing arguments.');
-      expect(() => plot(simpleList).xlabel(), throwsNoSuchMethodError);
-    });
     test('Calling plot() with a simple list: Add an xlabel() with required String label', () {
       logMessage('Now adding a label to the x axis with required String label.');
       expect(() => plot(simpleList).xlabel(''), isNot(throwsNoSuchMethodError));
     });
-    test('Calling plot() with a simple list: Add a ylabel() missing arguments', () {
-      logMessage('Now adding a label to the y axis missing arguments.');
-      expect(() => plot(simpleList).ylabel(), throwsNoSuchMethodError);
-    });
     test('Calling plot() with a simple list: Add a ylabel() with required String label', () {
       logMessage('Now adding a label to the y axis with required String label.');
       expect(() => plot(simpleList).ylabel(''), isNot(throwsNoSuchMethodError));
-    });
-    test('Calling plot() with a simple list: Add a title() missing arguments', () {
-      logMessage('Now adding a title missing arguments.');
-      expect(() => plot(simpleList).title(), throwsNoSuchMethodError);
     });
     test('Calling plot() with a simple list: Add a title() with required String label', () {
       logMessage('Now adding a title with required String label.');
@@ -125,17 +109,9 @@ void createSinglePlot() {
       logMessage('Now adding a legend with optional arguments.');
       expect(() => plot(simpleList).legend(l1:'', l2:'', l3:'', l4:''), isNot(throwsNoSuchMethodError));
     });
-    test('Calling plot() with a simple list: Add an xmarker() missing argument', () {
-      logMessage('Now adding an xmarker missing arguments.');
-      expect(() => plot(simpleList).xmarker(), throwsNoSuchMethodError);
-    });
     test('Calling plot() with a simple list: Add an xmarker() with required num value', () {
       logMessage('Now adding an xmarker with num value.');
       expect(() => plot(simpleList).xmarker(simpleList.length / 2), isNot(throwsNoSuchMethodError));
-    });
-    test('Calling plot() with a simple list: Add an ymarker() missing argument', () {
-      logMessage('Now adding an ymarker missing arguments.');
-      expect(() => plot(simpleList).ymarker(), throwsNoSuchMethodError);
     });
     test('Calling plot() with a simple list: Add an ymarker() with required num value', () {
       logMessage('Now adding an xmarker with num value.');
