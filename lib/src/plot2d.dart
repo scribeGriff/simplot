@@ -115,9 +115,10 @@ Plot2D plot(List y1, {
   });
   graphContainer.nodes.add(_plotCanvas);
   CanvasRenderingContext2D context = _plotCanvas.context2d;
-  context.fillStyle = 'white';
-  context.fillRect(0, 0, _pwidth, _pheight);
-  context.fillStyle = 'black';
+  context
+    ..fillStyle = 'white'
+    ..fillRect(0, 0, _pwidth, _pheight)
+    ..fillStyle = 'black';
 
   //If no xdata was passed, create a row vector
   //based on the length of y1.
