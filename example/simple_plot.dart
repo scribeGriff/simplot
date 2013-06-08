@@ -46,6 +46,7 @@ void main() {
     ..xlabel('total fat (g)', color: '#3C3D36')
     ..ylabel('total calories', color: '#3C3D36')
     ..legend(l1: 'Calories from fat', l2: 'best fit: 11.7x + 193', top:false)
+    ..date()
     ..title('Correlation of Fat and Calories in Fast Food', color: 'black');
   // Add scatter plot to the allPlots array.
   allPlots.add(myScatter);
@@ -146,10 +147,12 @@ void main() {
     ..title('Partial Sums of Fourier Series', color:'DarkSlateGray')
     ..legend(l1:'original', l2:'k = 2', l3:'k = 8', l4:'k = 32', top:false)
     ..xlabel('samples(n)')
-    ..ylabel('signal amplitude')
-    ..date();
+    ..ylabel('signal amplitude');
   // Add my2ndCurve plot to allPlots array.
   allPlots.add(my2ndCurve);
   // Save all plots to a browser window as PNG image.
-  WindowBase myPlotWindow = saveAll(allPlots);
+  // WindowBase myPlotWindow = saveAll(allPlots);
+  // Can add plots to the the saved PNG in any order.
+  var diffPlotOrder = [my2ndCurve, myCurve, myLines, myScatter];
+  WindowBase my2ndPlotWindow = saveAll(diffPlotOrder);
 }

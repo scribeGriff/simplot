@@ -123,8 +123,13 @@ Plot2D plot(List y1, {
   //If no xdata was passed, create a row vector
   //based on the length of y1.
   if (xdata == null) {
-    xdata = new List.generate(y1.length, (var index) =>
-        index + 1, growable:false);
+    if (style1 == 'data') {
+      xdata = new List.generate(y1.length, (var index) =>
+          index + 1, growable:false);
+    } else {
+      xdata = new List.generate(y1.length, (var index) =>
+          index, growable:false);
+    }
   } else if (style1 == 'data') {
     xdata = new List.generate(y1.length, (var index) =>
         index + xdata[0], growable:false);
