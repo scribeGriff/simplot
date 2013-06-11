@@ -114,7 +114,7 @@ Plot2D plot(List y1, {
     "height": "$_pheight",
   });
   graphContainer.nodes.add(_plotCanvas);
-  CanvasRenderingContext2D context = _plotCanvas.context2d;
+  CanvasRenderingContext2D context = _plotCanvas.context2D;
   context
     ..fillStyle = 'white'
     ..fillRect(0, 0, _pwidth, _pheight)
@@ -239,7 +239,8 @@ class Plot2D {
     context
       ..strokeStyle = "rgb(85, 98, 112)"    //"#556270"
       ..lineCap = "round"
-      ..strokeRect(_borderL, _borderT, _pwidth - _border, _pheight - _border, 2)
+      ..lineWidth = 2
+      ..strokeRect(_borderL, _borderT, _pwidth - _border, _pheight - _border)
       ..lineWidth = 1;
 
     //Create tick marks on x axis.
@@ -622,7 +623,8 @@ class Plot2D {
       ..fillRect(_legendX, _legendY, _legendWidth, _legendHeight)
       ..strokeStyle = "rgb(85, 98, 112)"    //"#556270"
       ..lineCap = "round"
-      ..strokeRect(_legendX, _legendY, _legendWidth, _legendHeight, 2)
+      ..lineWidth = 2
+      ..strokeRect(_legendX, _legendY, _legendWidth, _legendHeight)
       ..lineWidth = 1;
     for (var waveform in _ydata.keys) {
       if (_ydata[waveform] != null) {
@@ -680,8 +682,10 @@ class Plot2D {
                 ..fillRect(5 + _valX, 10 + _valY - _valHeight, _valWidth, _valHeight)
                 ..strokeStyle = 'rgba(85, 98, 112, 0.9)'   //"#556270"
                 ..lineCap = "round"
+                ..lineWidth = 1
                 ..strokeRect(5 + _valX, 10 + _valY - _valHeight, _valWidth,
-                    _valHeight, 1)
+                    _valHeight)
+                ..lineWidth = width
                 ..fillStyle = _color[waveform]
                 ..fillText(_value, 10 + _borderL + ((xval - _xmin) / _xstep * _xdiv),
                     5 + _pheight - _borderT - ((_dataPoint - _ymin) / _ystep * _ydiv));
@@ -692,8 +696,10 @@ class Plot2D {
                     _valWidth, _valHeight)
                 ..strokeStyle = 'rgba(85, 98, 112, 0.9)'   //"#556270"
                 ..lineCap = "round"
+                ..lineWidth = 1
                 ..strokeRect(_valX - _valWidth - 5, 10 + _valY - _valHeight,
-                    _valWidth, _valHeight, 1)
+                    _valWidth, _valHeight)
+                ..lineWidth = width
                 ..fillStyle = _color[waveform]
                 ..fillText(_value, _borderL + ((xval - _xmin) / _xstep * _xdiv) - _valWidth,
                     5 + _pheight - _borderT - ((_dataPoint - _ymin) / _ystep * _ydiv));
@@ -788,7 +794,7 @@ WindowBase saveAll(List plots, {num scale: 1.0, bool quad: true}) {
     "width": "$_widthAll",
     "height": "$_heightAll"
   });
-  CanvasRenderingContext2D _contextAll = _plotAllCanvas.context2d;
+  CanvasRenderingContext2D _contextAll = _plotAllCanvas.context2D;
   _contextAll.fillStyle = 'white';
   _contextAll.fillRect(0, 0, _widthAll, _heightAll);
   if (quad) {
