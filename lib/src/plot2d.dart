@@ -734,8 +734,8 @@ class Plot2D {
    *     var myPlot = plot(data);
    *     myPlot.save();
    */
-  void save() {
-    window.open(context.canvas.toDataUrl('image/png'), 'plotWindow');
+  void save({String name:'plotWindow'}) {
+    window.open(context.canvas.toDataUrl('image/png'), name);
   }
 }
 

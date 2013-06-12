@@ -46,10 +46,10 @@ An array of data of type `List` is the only required parameter.  However, the `p
 - **y2**: an array of type `List`.  Additional data to be plotted on same axes.
 - **y3**: an array of type `List`.  Additional data to be plotted on same axes.
 - **y4**: an array of type `List`.  Additional data to be plotted on same axes.
-- **style1**: a `String` defining the type of plot (line, curve, etc) for the first set of data.  Default value is *linepts*.
-- **style2**: a `String` defining the type of plot (*line*, *curve*, etc) for the second set of data.  Default value is style1.
-- **style3**: a `String` defining the type of plot (*line*, *curve*, etc) for the third set of data.  Default value is style1.
-- **style4**: a `String` defining the type of plot (*line*, *curve*, etc) for the fourth set of data.  Default value is style1.
+- **style1**: a `String` defining the type of plot (*line, curve*, etc) for the first set of data.  Default value is *linepts*.
+- **style2**: a `String` defining the type of plot (*line, curve*, etc) for the second set of data.  Default value is style1.
+- **style3**: a `String` defining the type of plot (*line, curve*, etc) for the third set of data.  Default value is style1.
+- **style4**: a `String` defining the type of plot (*line, curve*, etc) for the fourth set of data.  Default value is style1.
 - **color1**: a `String` defining the color of the plot for the first set of data.  Default value is *black*. 
 - **color2**: a `String` defining the color of the plot for the second set of data.  Default value is *ForestGreen*.
 - **color3**: a `String` defining the color of the plot for the third set of data.  Default value is *Navy*.
@@ -119,6 +119,10 @@ Most methods contain required and optional named parameters to control a variety
 - num yval (required)
 - String color: Default = 'rgb(85, 98, 112)' (optional)
 - var width: Default = 1 (optional)
+
+**save()**
+
+- String name: Default = 'plotWindow' (optional)
 
 The date() method accepts a single optional positional parameter:
 
