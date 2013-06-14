@@ -31,8 +31,10 @@ import 'dart:html';
 import 'dart:collection';
 import 'dart:math';
 import 'dart:async';
+import 'dart:json' as json;
 
 part 'src/axis_config.dart';
 part 'src/plot2d.dart';
 part 'src/logarithm.dart';
 part 'src/date_time.dart';
+part 'src/request_data_ws.dart';
