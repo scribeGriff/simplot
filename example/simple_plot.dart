@@ -2,6 +2,21 @@
 // https://github.com/scribeGriff/simplot
 // All rights reserved.  Please see the LICENSE.md file.
 
+
+/**
+ * Four examples of creating different plots using the simplot library.
+ *
+ * Examples include:
+ * * scatter plot
+ * * line graph
+ * * curve (sinc functio)
+ * * curve (Fourier series)
+ *
+ * For an example of retrieving data from a websocket for plotting, see
+ * the simple_plot_ws.dart file in the examples directory.
+ *
+ */
+
 library simplot_example;
 
 import 'package:simplot/simplot.dart';

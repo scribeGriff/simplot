@@ -16,9 +16,12 @@ The simplot library supports a variety of plot styles, including:
 - curve
 - curve with points 
 
+The library also has built in support for client-side websockets as a way to transfer data from a server to a browser window for plotting.
+
 ### Documentation ###
 
 - **API:** [scribeGriff.github.io/docs/simplot](http://scribeGriff.github.io/docs/simplot "Simplot API documentation")
+- **Blog:** [Simplot: A 2D Canvas Plotting Library for Dart](http://www.scribegriff.com/studios/index.php?post/2013/05/31/Simplot-A-2D-Canvas-Plotting-Library-for-Dart "Simplot: A 2D Canvas Plotting Library for Dart")
   
 ### Limitations ###
 
@@ -72,7 +75,9 @@ Along with the top level `plot()` command, there are a number of configurable me
 - `ymarker()`   
 - `save()`
 
-There is also a top level function `saveAll()` that saves all currently drawn plots to a PNG file.  An example of saving a quad layout of plots is shown below:
+The library also contains two top level functions, `saveAll()` and `requestDataWS()`. The `saveAll()` command accepts an array of plots and generates a PNG image of the plots arranged in either a quad or linear format. The `requestDataWS()` receives an array of data from a websocket and plots it to a browser window. We'll look at an example of using `requestDataWS()` near the end of this README file.
+
+An example of saving a quad layout of plots using the `saveAll()` function is shown below:
 
 ![simplot: built with dartlang](http://www.scribegriff.com/dartlang/github/simplot/simplot-quad-ex.png)
 
@@ -311,6 +316,83 @@ Displaying the plots in a web browser is left largely up to the user.  All that 
     }
 
 This example will place multiple plots in a quad arrangement as in the example image above.
+
+## Working with Server Side Data ##
+
+The simplot library contains a top level function, `requestDataWS()`, which interacts with a server to retrieve data for plotting. Implementing this capability requires that you set up a script like the one below to read a file on a server (or local machine) and transfer the data to a websocket:
+
+    import 'dart:async';
+    import 'dart:io';
+    import 'dart:json' as json;
+    
+    void main() {
+      //Path to external file.
+      String filename = '../../lib/external/data/sound4.txt';
+      var host = 'local';
+      var port = 8080;
+      List data = [];
+      Stream stream = new File(filename).openRead();
+      stream
+          .transform(new StringDecoder())
+          .transform(new LineTransformer())
+          .listen((String line) {
+            if (line.isNotEmpty) {
+              data.add(double.parse(line.trim()));
+            }
+          },
+          onDone: () {
+          //connect with ws://localhost:8080/ws
+          if (host == 'local') host = '127.0.0.1';
+          HttpServer.bind(host, port).then((server) {
+            print('Opening connection at $host:$port');
+            server.transform(new WebSocketTransformer()).listen((WebSocket webSocket) {
+            webSocket.listen((message) {
+              var msg = json.parse(message);
+              print("Received the following message: \n"
+              "${msg["request"]}\n${msg["date"]}");
+              webSocket.add(json.stringify(data));
+            },
+            onDone: () {
+              print('Connection closed by client: Status - ${webSocket.closeCode}'
+              ' : Reason - ${webSocket.closeReason}');
+              server.close();
+            });
+          });
+        });
+      },
+      onError: (e) {
+        print('There was an error: $e');
+      });
+    }
+
+Once the data has been added to the websocket by the server, use the `requestDataWS()` function from the simplot library to retrieve it for plotting:
+
+    import 'dart:html';
+    import 'dart:async';
+    import 'package:simplot/simplot.dart';
+    
+    void main() {
+      String host = 'local';
+      int port = 8080;
+      var myDisplay = query('#console');
+      var myMessage = 'Send data request';
+      Future reqData = requestDataWS(host, port, message:myMessage, display:myDisplay);
+      reqData.then((data) {
+        var sndLength = data.length;
+        var sndRate = 22050;
+        var sndSample = sndLength / sndRate * 1e3;
+        var xtime = new List.generate(sndLength, (var index) =>
+        index / sndRate * 1e3, growable:false);
+    
+        var wsCurve = plot(data, xdata:xtime, style1:'curve', color1:'green', linewidth:3);
+        wsCurve
+          ..grid()
+          ..title('Sound Sample from Server')
+          ..xlabel('time (ms)')
+          ..ylabel('amplitude')
+          ..save();
+      });
+    }
 
 ## Author ##
 
