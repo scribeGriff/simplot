@@ -9,7 +9,7 @@
  * Examples include:
  * * scatter plot
  * * line graph
- * * curve (sinc functio)
+ * * curve (sinc function)
  * * curve (Fourier series)
  *
  * For an example of retrieving data from a websocket for plotting, see

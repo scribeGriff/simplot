@@ -349,7 +349,7 @@ class Plot2D {
       var i = _borderL + (((_xdata[j]) - _xmin)/_xstep * _xdiv);
       context
         ..beginPath()
-        ..moveTo(i.toInt(), _pheight - _borderT)
+        ..moveTo(i.toInt(), _pheight - _borderT - (((0) - _ymin) / _ystep * _ydiv))
         ..lineTo(i.toInt(), _pheight - _borderT - (((yvals[j]) - _ymin) / _ystep * _ydiv))
         ..stroke()
         ..beginPath()
