@@ -326,6 +326,7 @@ The simplot library contains a top level function, `requestDataWS()`, which inte
     import 'dart:async';
     import 'dart:io';
     import 'dart:json' as json;
+    import 'dart:convert';
     
     void main() {
       //Path to external file.
@@ -336,7 +337,7 @@ The simplot library contains a top level function, `requestDataWS()`, which inte
       Stream stream = new File(filename).openRead();
       stream
           .transform(new StringDecoder())
-          .transform(new LineTransformer())
+          .transform(new LineSplitter())
           .listen((String line) {
             if (line.isNotEmpty) {
               data.add(double.parse(line.trim()));
