@@ -308,7 +308,7 @@ Displaying the plots in a web browser is left largely up to the user.  All that 
 
 ### CSS:
 
-````dart
+````css
 body {
   background-color: #F8F8F8;
   font-family: 'Open Sans', sans-serif;
