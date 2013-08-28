@@ -21,7 +21,7 @@
  *     List data = [];
  *     Stream stream = new File(filename).openRead();
  *     stream
- *       .transform(new StringDecoder())
+ *       .transform(UTF8.decoder)
  *       .transform(new LineSplitter())
  *       .listen((String line) {
  *         if (line.isNotEmpty) {
