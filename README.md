@@ -368,7 +368,7 @@ void main() {
           print('Opening connection at $host:$port');
           server.transform(new WebSocketTransformer()).listen((WebSocket webSocket) {
           webSocket.listen((message) {
-            var msg = json.parse(message);
+            var msg = JSON.decode(message);
             print("Received the following message: \n"
             "${msg["request"]}\n${msg["date"]}");
             webSocket.add(JSON.encode(data));
