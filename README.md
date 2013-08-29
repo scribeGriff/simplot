@@ -344,7 +344,6 @@ The simplot library contains a top level function, `requestDataWS()`, which inte
 ````dart
 import 'dart:async';
 import 'dart:io';
-import 'dart:json' as json;
 import 'dart:convert';
     
 void main() {
@@ -372,7 +371,7 @@ void main() {
             var msg = json.parse(message);
             print("Received the following message: \n"
             "${msg["request"]}\n${msg["date"]}");
-            webSocket.add(json.stringify(data));
+            webSocket.add(JSON.encode(data));
           },
           onDone: () {
             print('Connection closed by client: Status - ${webSocket.closeCode}'

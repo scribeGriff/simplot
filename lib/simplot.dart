@@ -31,7 +31,7 @@ import 'dart:html';
 import 'dart:collection';
 import 'dart:math';
 import 'dart:async';
-import 'dart:json' as json;
+import 'dart:convert';
 
 part 'src/axis_config.dart';
 part 'src/plot2d.dart';

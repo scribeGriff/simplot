@@ -38,7 +38,7 @@
  *             var msg = json.parse(message);
  *             print("Received the following message: \n"
  *                 "${msg["request"]}\n${msg["date"]}");
- *             webSocket.add(json.stringify(data));
+ *             webSocket.add(JSON.encode(data));
  *           },
  *           onDone: () {
  *             print('Connection closed by client: Status - ${webSocket.closeCode}'
