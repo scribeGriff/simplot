@@ -85,7 +85,7 @@ void createMultiplePlots() {
       plot(simpleList, range:4, index:2);
       plot(simpleList, range:4, index:3);
       plot(simpleList, range:4, index:4);
-      expect(graph.children.every((child) => child.width == 600), equals(true));
+      expect(graph.children.every((child) => child.clientWidth == 600), equals(true));
     });
     test('Calling plot() 4 times with a simple list: Check for proper height', () {
       logMessage('Now checking for plot height.');
@@ -93,7 +93,7 @@ void createMultiplePlots() {
       plot(simpleList, range:4, index:2);
       plot(simpleList, range:4, index:3);
       plot(simpleList, range:4, index:4);
-      expect(graph.children.every((child) => child.height == 450), equals(true));
+      expect(graph.children.every((child) => child.clientHeight == 450), equals(true));
     });
   });
 }

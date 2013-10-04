@@ -104,7 +104,7 @@ Plot2D plot(List y1, {
   final int _border = 80;
   final int _pwidth = _gphSize;
   final int _scalePlot = large ? 2 : range;
-  final int _pheight = range == 1 ? _gphSize : (_gphSize * 1.5 / _scalePlot).toInt();
+  final int _pheight = range == 1 ? _gphSize : (_gphSize * 1.5 ~/ _scalePlot);
   var graphContainer = query(container);
   var _plotCanvas = new CanvasElement();
   _plotCanvas.attributes = ({
