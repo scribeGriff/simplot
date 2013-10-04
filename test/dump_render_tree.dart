@@ -17,8 +17,7 @@ void main() {
     var args = ['--dump-render-tree', 'simplot_tests.html'];
     return Process.run('content_shell', args)
         .then((ProcessResult res) {
-          expect(res.exitCode, 0, reason: 'content_shell exit code: '
-            '${res.exitCode}. Contents of stderr: \n${res.stderr}');
+          expect(res.exitCode, 0);
           print(res.stdout);
           final passPattern = new RegExp('All \\d+ tests passed');
           expect(passPattern.hasMatch(res.stdout), true);
