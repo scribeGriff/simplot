@@ -15,13 +15,13 @@ import 'dart:io';
 void main() {
   test('Simplot headless testing with content_shell.', () {
     var args = ['--dump-render-tree', 'simplot_tests.html'];
-    expect(Process.run('content_shell', args)
+    return Process.run('content_shell', args)
         .then((ProcessResult res) {
           expect(res.exitCode, 0, reason: 'content_shell exit code: '
             '${res.exitCode}. Contents of stderr: \n${res.stderr}');
           print(res.stdout);
           final passPattern = new RegExp('All \\d+ tests passed');
           expect(passPattern.hasMatch(res.stdout), true);
-        }), completes);
+        });
     });
 }
