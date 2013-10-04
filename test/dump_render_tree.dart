@@ -14,13 +14,11 @@ import 'dart:io';
 import 'dart:async';
 
 void main() {
+  final passPattern = new RegExp('All \\d+ tests passed');
+  final args = ['--dump-render-tree', 'simplot_tests.html'];
   test('Simplot headless testing with content_shell.', () {
-    var args = ['--dump-render-tree', 'simplot_tests.html'];
     return Process.run('content_shell', args)
         .then((ProcessResult res) {
-          expect(res.exitCode, 0);
-          print(res.stdout);
-          final passPattern = new RegExp('All \\d+ tests passed');
           expect(passPattern.hasMatch(res.stdout), true);
         });
     });

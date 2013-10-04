@@ -4,10 +4,6 @@
 
 ## A simple, 2D HTML canvas plotting library for drawing graphs in a browser window. ##
 
-[![Build Status](https://drone.io/github.com/scribeGriff/simplot/status.png)](https://drone.io/github.com/scribeGriff/simplot/latest)
-
-[![endorse](https://api.coderwall.com/scribegriff/endorsecount.png)](https://coderwall.com/scribegriff)
-
 ## Overview ##
 The simplot library supports a variety of plot styles, including:
 
