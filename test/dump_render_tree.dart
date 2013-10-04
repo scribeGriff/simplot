@@ -11,6 +11,7 @@ library dumprendertree;
 
 import 'package:unittest/unittest.dart';
 import 'dart:io';
+import 'dart:async';
 
 void main() {
   test('Simplot headless testing with content_shell.', () {
