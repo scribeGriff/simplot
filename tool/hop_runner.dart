@@ -5,7 +5,7 @@
 library dumprendertree;
 
 /**
- * DumpRenderTree process for headless testing.
+ * Headless testing with Hop.
  *
  */
 
