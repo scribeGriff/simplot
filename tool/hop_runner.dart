@@ -13,20 +13,18 @@ import 'package:hop/hop.dart';
 import 'dart:io';
 import 'dart:async';
 
-main() {
+main(List<String> args) {
   addTask('test', createUnitTestTask());
-  runHop();
+  runHop(args);
 }
 
 Task createUnitTestTask() {
-  final allPassedRegExp = new RegExp('All \\d+ tests passed');
-  return new Task.sync((TaskContext tcontext) {
+  return new Task((TaskContext tcontext) {
     tcontext.info("Running Unit Tests....");
     var result = Process.run('content_shell',
         ['--dump-render-tree','test/simplot_tests.html'])
         .then((ProcessResult process) {
           tcontext.info(process.stdout);
-          return allPassedRegExp.hasMatch(process.stdout);
         });
     return result;
   });
