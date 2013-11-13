@@ -95,6 +95,7 @@ Plot2D plot(List y1, {
     int linewidth: 2,
     int range: 1,
     int index: 1,
+    Element shadow: null,
     String container: '#simPlotQuad'}) {
 
   if (y1 == null || y1.isEmpty) throw new ArgumentError("No data to be plotted.");
@@ -105,7 +106,13 @@ Plot2D plot(List y1, {
   final int _pwidth = _gphSize;
   final int _scalePlot = large ? 2 : range;
   final int _pheight = range == 1 ? _gphSize : (_gphSize * 1.5 ~/ _scalePlot);
-  var graphContainer = query(container);
+  // Testing support for shadow DOM.
+  Element graphContainer;
+  if (shadow == null) {
+    graphContainer = querySelector(container);
+  } else {
+    graphContainer = shadow;
+  }
   var _plotCanvas = new CanvasElement();
   _plotCanvas.attributes = ({
     "id": "simPlot$index",
