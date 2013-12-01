@@ -67,7 +67,7 @@ import 'package:simplot/simplot.dart';
 void main() {
   String host = 'local';
   int port = 8080;
-  var myDisplay = query('#console');
+  var myDisplay = querySelector('#console');
   var myMessage = 'Send data request';
   Future reqData = requestDataWS(host, port, message:myMessage,
       display:myDisplay);
