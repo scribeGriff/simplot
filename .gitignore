@@ -9,3 +9,5 @@ packages/
 local
 local/
 pubspec.lock
+**/*.dart.js*
+**/*.dart.precompiled*
