@@ -3,12 +3,12 @@ version: 0.2.2
 author: Richard Griffith (scribe.griff@gmail.com)
 description: A library for plotting two dimensional (2D), list based, data structures to an HTML canvas.
 homepage: https://github.com/scribeGriff/simplot
-documentation: http://scribeGriff.github.io/docs/simplot
 environment:
   sdk: '>=0.8.10+6 <2.0.0'
+documentation: http://scribeGriff.github.io/docs/simplot
 dev_dependencies:
-  browser: '>=0.9.0 <0.10.0'
+  browser: '>=0.9.0'
   convolab:
     git: git://github.com/scribeGriff/ConvoLab.git
   hop: '>=0.27.0'
-  unittest: '>=0.9.0 <0.10.0'
+  unittest: '>=0.11.0'

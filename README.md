@@ -2,7 +2,7 @@
 
 # Simplot #
 
-[![Build Status](https://drone.io/github.com/scribeGriff/simplot/status.png)](https://drone.io/github.com/scribeGriff/simplot/latest)
+***Note: This library is not currently being maintained.***
 
 ## A simple, 2D HTML canvas plotting library for drawing graphs in a browser window. ##
 

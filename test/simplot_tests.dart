@@ -32,10 +32,10 @@ void main() {
   print('Running unit tests for simplot library.');
   useHtmlEnhancedConfiguration();
   group('All Tests:', (){
-    test('test of logarithmic functions', () => logarithmicTests());
-    test('test of time stamp', () => timeStampTests());
-    test('test of axis configuration', () => axisConfigTests());
-    test('test of creating a single plot', () => createSinglePlot());
-    test('test of creating multiple plots', () => createMultiplePlots());
+    group('test of logarithmic functions', () => logarithmicTests());
+    group('test of time stamp', () => timeStampTests());
+    group('test of axis configuration', () => axisConfigTests());
+    group('test of creating a single plot', () => createSinglePlot());
+    group('test of creating multiple plots', () => createMultiplePlots());
   });
 }
